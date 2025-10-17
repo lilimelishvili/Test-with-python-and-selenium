@@ -12,8 +12,15 @@ driver.get("https://invu.ge")
 time.sleep(2)
 
 
+# Click the element with XPath //a[@href='desktop-login']
+register_link = driver.find_element(By.XPATH, "//a[@class='desktop-login']")
+register_link.click()
+
+# Wait for the registration page to load
+time.sleep(2)
+
 # Click the element with XPath //a[@href='/register']
-register_link = driver.find_element(By.XPATH, "//a[@href='/register']")
+register_link = driver.find_element(By.XPATH, "//button[normalize-space()='Sign up here']")
 register_link.click()
 
 # Wait for the registration page to load

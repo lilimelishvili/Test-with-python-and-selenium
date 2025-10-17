@@ -16,30 +16,31 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.get("https://invu.ge")
 
 # Wait for a few seconds so you can see it
-time.sleep()
+time.sleep(3)
 
-# Close the browser
-driver.quit()
-# Click the Register button
-driver.find_element(By.XPATH, "//button[@type='submit']").click()
-time.sleep()
+# Click the element with XPath //a[@href='desktop-login']
+register_link = driver.find_element(By.XPATH, "//a[@class='desktop-login']")
+register_link.click()
+
+# Wait for the registration page to load
+time.sleep(2)
 
 # Click on the "Register" link
 register_button = driver.find_element(By.XPATH, "//a[@href='/register']")
 register_button.click()
 
 # Wait for the registration page to load
-time.sleep()
+time.sleep(3)
 
 # Close the browser
 driver.quit()
 # Enter "Lika" into the first name field
 first_name_input = driver.find_element(By.XPATH, "//input[@id='firstName']")
 first_name_input.send_keys("Lika")
-time.sleep()
+time.sleep(3)
 
 # Optional: keep the browser open for a few seconds to verify visually
-time.sleep()
+time.sleep(3)
 
 # Close the browser
 driver.quit()
@@ -47,20 +48,20 @@ driver.quit()
 # Enter "Epitashvili" into the last name field
 last_name_input = driver.find_element(By.XPATH, "//input[@id='lastName']")
 last_name_input.send_keys("Epitashvili")
-time.sleep()
+time.sleep(3)
 
 # Optional: Wait to visually confirm
-time.sleep()
+time.sleep(3)
 
 # Close the browser
 driver.quit()
 # Enter "Lily.imerlishvili@gmail.com" into the email field
 email_input = driver.find_element(By.XPATH, "//input[@id='email']")
 email_input.send_keys("Lily.imerlishvili@gmail.com")
-time.sleep()
+time.sleep(3)
 
 # Optional: Wait to visually confirm
-time.sleep()
+time.sleep(3)
 
 # Close the browser
 driver.quit()
@@ -68,10 +69,10 @@ driver.quit()
 # Enter "123@Test" into the password field
 password_input = driver.find_element(By.XPATH, "//input[@id='password']")
 password_input.send_keys("123@Test")
-time.sleep()
+time.sleep(3)
 
 # Optional: Wait to visually confirm
-time.sleep()
+time.sleep(3)
 
 # Close the browser
 driver.quit()
@@ -79,10 +80,10 @@ driver.quit()
 # Enter "123@Test" into the confirm password field
 confirm_password_input = driver.find_element(By.XPATH, "//input[@id='confirmPassword']")
 confirm_password_input.send_keys("123@Test")
-time.sleep()
+time.sleep(3)
 
 # Optional: Wait to visually confirm fields are filled
-time.sleep()
+time.sleep(3)
 
 # Close the browser
 driver.quit()
@@ -90,7 +91,7 @@ driver.quit()
 # Click the "Register" button
 submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 submit_button.click()
-time.sleep()
+time.sleep(3)
 
 # Optional: Verify registration result (e.g., redirected to homepage)
 print(" Registration form submitted successfully")
