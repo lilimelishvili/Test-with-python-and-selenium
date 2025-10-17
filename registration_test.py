@@ -39,7 +39,7 @@ password_input.send_keys("123@Test")
 confirm_password_input = driver.find_element(By.XPATH, "//input[@id='confirmPassword']")
 confirm_password_input.send_keys("123@Test")
 
-# Click the submit button with itype='submit'
+# Click the submit button with type='submit'
 submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 submit_button.click()
 
