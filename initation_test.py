@@ -28,16 +28,20 @@ time.sleep(5)
 # Close the browser
 driver.quit()
 
-# Click the element again with XPath //div[@class='w-full h-full flex items-center justify-center p-2 sm:p-4']
-second_click = driver.find_element(By.XPATH, "//div[@class='w-full h-full flex items-center justify-center p-2 sm:p-4']")
-second_click.click()
+# Click the first template card using XPath (//div[contains(@class, "template-card")])[1]
+first_template_card = driver.find_element(By.XPATH, '(//div[contains(@class, "template-card")])[1]')
+first_template_card.click()
 
-# Wait for potential action
+# Wait for the invitation editor or next page to load
 time.sleep(3)
 
 # Print confirmation
-print(" Clicked invitation card again after entering text successfully.")
+print("✅ Clicked on the first template card successfully.")
 
+# Keep the browser open briefly
+time.sleep(5)
 
-# It does not click the element
+# Close the browser
+driver.quit()
 
+#TEST TS
