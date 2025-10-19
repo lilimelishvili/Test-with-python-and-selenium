@@ -88,11 +88,15 @@ def main():
         time.sleep(5) 
 
         # 7) Click the gradient primary button
-        gradient_btn_locator = (By.XPATH, "//button[@class='w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed']")
-  
-        gradient_btn = wait.until(EC.element_to_be_clickable(gradient_btn_locator))
+        
+        create_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Create Invitation']")))
+        driver.execute_script("arguments[0].scrollIntoView({block:'center'});", create_btn)
+        create_btn.click()
 
+        # Observe result
         time.sleep(3)
+  
+        
 
     except Exception as e:
         # capture screenshot and page state to debug intermittent fails
