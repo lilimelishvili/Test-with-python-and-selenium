@@ -13,7 +13,7 @@ time.sleep(2)
 
 
 # Click the element with XPath //a[@href='desktop-login']
-register_link = driver.find_element(By.XPATH, "//a[@class='desktop-login']")
+register_link = driver.find_element(By.XPATH, "//a[@class='secondary-button']")
 register_link.click()
 
 # Wait for the registration page to load
@@ -29,22 +29,27 @@ time.sleep(2)
 # Enter 'Lili' in the input with id 'firstName'
 first_name_input = driver.find_element(By.XPATH, "//input[@id='firstName']")
 first_name_input.send_keys("Lili")
+time.sleep(2)
 
 # Enter 'Imerlishvili' in the input with id 'lastName'
 last_name_input = driver.find_element(By.XPATH, "//input[@id='lastName']")
 last_name_input.send_keys("Imerlishvili")
+time.sleep(2)
 
 # Enter 'Lily.imerlishvili@gmail.com' in the input with id 'email'
 email_input = driver.find_element(By.XPATH, "//input[@id='email']")
 email_input.send_keys("Lily.imerlishvili@gmail.com")
+time.sleep(2)
 
 # Enter '123@Test' in the input with id 'password'
 password_input = driver.find_element(By.XPATH, "//input[@id='password']")
 password_input.send_keys("123@Test")
+time.sleep(2)
 
 # Enter '123@Test' in the input with id 'confirmPassword'
 confirm_password_input = driver.find_element(By.XPATH, "//input[@id='confirmPassword']")
 confirm_password_input.send_keys("123@Test")
+time.sleep(2)
 
 # Click the submit button with type='submit'
 submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
