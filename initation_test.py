@@ -23,7 +23,7 @@ def main():
         driver.get("https://invu.ge")
 
         # 2) Click on the element //a[@class='desktop-login']
-        login_link = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@class='desktop-login']")))
+        login_link = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@class='secondary-button']")))
         login_link.click()
         time.sleep(5)
         
@@ -45,9 +45,10 @@ def main():
         time.sleep(5)
         
         # 6) Click on Templates link with Georgian text 'შაბლონები'
-        ge_templates = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@class='desktop-nav']//a[contains(text(),'შაბლონები')]")))
+        ge_templates = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'შაბლონები')]")))
         ge_templates.click()
-        
+        time.sleep(3)
+
          #7 Click on first template card
         first_template_card = wait.until(EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class, 'template-card')])[1]")))
         first_template_card.click()
@@ -55,35 +56,41 @@ def main():
         #  Wait a few seconds to observe
         time.sleep(5)
           # 8 Enter 'Lili & Gio' into the input with @placeholder
-        name_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder]")))
+        name_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@value='Wedding Celebration']")))
         name_input.clear()
         name_input.send_keys("Lili & Gio")
+        time.sleep(2)
+          # 8 Enter "Please join us for our wedding celebration!"
+        name_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//textarea[@class='w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent shadow-sm hover:shadow-md transition-shadow resize-none']")))
+        name_input.clear()
+        name_input.send_keys("Please join us for our wedding celebration!")
+        time.sleep(2)
+         # 8 Enter address
+        name_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@value='The Grand Ballroom']")))
+        name_input.clear()
+        name_input.send_keys("Rustavi, Georgia, 15 Tbilisi St.")
 
         #Wait to observe
-        time.sleep(5)
+        time.sleep(2)
         #9 Enter 'Imerlishvili' into the element with @type='date'
-        date_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@type='date']")))
+        date_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@value='2024-06-15']")))
         date_input.clear()
         date_input.send_keys("11/11/2025")  # Note: not a valid date, but per your instruction
 
         # Wait to observe result
-        time.sleep(5) 
+        time.sleep(2) 
         
         # 10 Enter 'Imerlishvili' into input with @type='time'
-        time_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@type='time']")))
+        time_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@value='16:00']")))
         time_input.clear()
         time_input.send_keys("13:00")  # Note: not a valid time format
          # Wait to observe result
         time.sleep(5) 
 
         # 7) Click the gradient primary button
-        gradient_btn_locator = (By.XPATH, "//button@class'Create Invitation')"
-        )
-        click_with_retry(driver, gradient_btn_locator)
-        wait_overlay_gone(driver)
-
-        # 8) Optional: verify result by waiting for a success toast or next page element
-        # wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@role='status' and contains(., 'Success')]")))
+        gradient_btn_locator = (By.XPATH, "//button[@class='w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed']")
+  
+        gradient_btn = wait.until(EC.element_to_be_clickable(gradient_btn_locator))
 
         time.sleep(3)
 
